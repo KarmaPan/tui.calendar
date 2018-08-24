@@ -53,9 +53,9 @@ function Week(controller, options, container, panels) {
      * @type {object} Options for view.
      */
     this.options = util.extend({
-        scheduleFilter: function(schedule) {
+        scheduleFilter: [function(schedule) {
             return Boolean(schedule.isVisible);
-        },
+        }],
         renderStartDate: datetime.format(range.start, 'YYYY-MM-DD'),
         renderEndDate: datetime.format(range.end, 'YYYY-MM-DD'),
         narrowWeekend: false,
@@ -130,7 +130,8 @@ Week.prototype.render = function() {
         datetime.start(renderStartDate),
         datetime.end(renderEndDate),
         this.panels,
-        scheduleFilter
+        scheduleFilter,
+        this.options
     );
 
     grids = datetime.getGridLeftAndWidth(

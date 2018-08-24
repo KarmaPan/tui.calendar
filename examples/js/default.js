@@ -42,7 +42,9 @@
         }],
         week: {
             showTimezoneCollapseButton: true,
-            timezonesCollapsed: false
+            timezonesCollapsed: false,
+            hourStart: 8,
+            hourEnd: 20
         }
     });
 
