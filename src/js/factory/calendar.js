@@ -329,6 +329,8 @@ function Calendar(container, options) {
     this._options = {};
 
     this._initialize(options);
+
+    this._useStatisticsIfAvailable();
 }
 
 /**
@@ -1178,6 +1180,16 @@ Calendar.prototype._toggleViewSchedule = function(isAttach, view) {
     view[method]('afterRenderSchedule', self._onAfterRenderSchedule, self);
     view[method]('clickTimezonesCollapseBtn', self._onClickTimezonesCollapseBtn, self);
     view[method]('clickMore', self._onClickMore, self);
+};
+
+/**
+ * Collect statistics on the use of open source
+ * @private
+ */
+Calendar.prototype._useStatisticsIfAvailable = function() {
+    if (util.sendHostname) {
+        util.sendHostname('Calendar');
+    }
 };
 
 /**

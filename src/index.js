@@ -11,10 +11,6 @@ var Calendar = require('./js/factory/calendar');
 require('./css/main.styl');
 require('./js/view/template/helper');
 
-if (util.sendHostname) {
-    util.sendHostname('calendar');
-}
-
 // for jquery
 if (global.jQuery) {
     global.jQuery.fn.tuiCalendar = function() {
